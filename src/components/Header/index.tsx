@@ -1,13 +1,20 @@
-import Image from 'next/image';
 import { Button } from 'antd';
 import MyIcon from '../MyIcon';
 
-export default function Header() {
+interface IProps {
+  onOpenAllFilterDrawer: () => void;
+}
+
+const  Header:React.FC<IProps> = (props) => {
+  const { onOpenAllFilterDrawer } = props;
   return (
     <header className="sticky top-0 z-20 border-t border-transparent backdrop-blur-md shadow-sm shadow-gray-200 dark:shadow-gray-600">
       <div className="flex items-center justify-between px-4 md:px-8 py-2">
         <div className="hidden md:flex gap-2 items-center h-12">
           <h1 className="text-xl font-bold">UI Lib Picker</h1>
+        </div>
+        <div className='hidden max-md:flex' onClick={onOpenAllFilterDrawer}>
+          <MyIcon size={24} type='icon-menu'></MyIcon>
         </div>
         <div className="flex items-center justify-end gap-1 md:gap-2">
         <Button type="text">
@@ -24,4 +31,6 @@ export default function Header() {
       </div>
     </header>
   );
-}
+};
+
+export default Header;

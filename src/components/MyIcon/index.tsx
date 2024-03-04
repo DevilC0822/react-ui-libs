@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const IconComponent = createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/c/font_4441233_11dg8izldxgi.js', // 在 iconfont.cn 上生成
+  scriptUrl: '//at.alicdn.com/t/c/font_4441233_xo3w0rpd82.js', // 在 iconfont.cn 上生成
 });
 
 

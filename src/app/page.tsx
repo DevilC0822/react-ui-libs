@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { Drawer } from 'antd';
+import Header from '@/components/Header';
 import AllFilter from '@/components/AllFilter';
 import LibrariesCard from '@/components/LibrariesCard';
 import libraries from '@/data/libraries';
@@ -10,6 +12,8 @@ export default function Home() {
     id: string;
     count?: number;
   }[]>([]);
+  const [allFilterDrawerVisible, setAllFilterDrawerVisible] = useState(false);
+
   const onFilterChange = (filterMatching: {
     id: string;
     count?: number | undefined;
@@ -53,7 +57,9 @@ export default function Home() {
     getInitData();
   }, []);
   return (
-    <main className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl pb-6">
+    <div>
+      <Header onOpenAllFilterDrawer={() => { setAllFilterDrawerVisible(true); }}></Header>
+      <main className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl pb-6">
       <div className="text-center mt-6 sm:my-12">
         <p className="text-lg sm:text-xl"> 为你的 <a href="https://react.dev/" rel="noopener noreferrer" target="_blank" className="text-primary-500 font-semibold"> React </a> 或 <a href="https://nextjs.org/" rel="noopener noreferrer" target="_blank" className="text-primary-500 font-semibold">Next.js</a> 项目 </p>
         <p className="text-3xl sm:text-4xl font-semibold tracking-tight"> 选择合适的UI组件库 </p>
@@ -70,6 +76,17 @@ export default function Home() {
           }
         </div>
       </div>
+      <Drawer
+        title="筛选"
+        placement="left"
+        closable={true}
+        onClose={() => setAllFilterDrawerVisible(false)}
+        open={allFilterDrawerVisible}
+        width={300}
+      >
+        <AllFilter onFilterChange={onFilterChange} />
+      </Drawer>
     </main>
+    </div>
   );
 }
