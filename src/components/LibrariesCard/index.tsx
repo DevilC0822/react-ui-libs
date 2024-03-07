@@ -104,7 +104,7 @@ const LibrariesCard: React.FC<IProps> = (props) => {
         <div className='mb-4'>
           <Alert message={<>
             <p>
-              请注意：此页面展示的组件列表是通过先进的AI模型(ChatGPT 插件 Web Reader)自动统计生成的，以确保您能够获取到最全面和最新的组件信息。由于组件库持续更新，列表内容也许会滞后，当前版本是 <span className='text-red-500'>{version}</span>
+              注意：此页面展示的组件列表是通过先进的AI模型(GPTs <a href='https://chat.openai.com/g/g-N2SX91z7G-web-reader' target='_blank'>Web Reader</a>)自动统计生成的，以确保您能够获取到最全面和最新的组件信息。由于组件库持续更新，列表内容也许会滞后，当前版本是 <span className='text-red-500'>{version}</span>
             </p>
           </>} type="info" />
         </div>
